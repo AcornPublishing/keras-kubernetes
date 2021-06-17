@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keras2Kubernetes - Sample WebApp - Image processing DEMO</title>
+</head>
+
+<body>
+<header class="navbar">
+  <font face="arial" size="3">
+  Select image and upload for analysis using the Deep Learning Model deployed as API.
+</font><br><br><br>
+  <form action="/upload" method="post" enctype="multipart/form-data" >
+      <span class="btn btn-default btn-file">
+        Browse <input type="file" name="image">
+      </span>
+
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+  </form>
+  <hr>
+  <font face="arial" size="3">
+    {% if result %}
+      <b>Result is: {{result['answer']}}</b>
+      <img src='{{ result['filename'] }}' width=800 height=600>
+    {% endif %}
+  </font>
+
+</header>
+
+{{ result }}
+
+</body>
+</html>
